@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    .pt{
+        color:darkblue;
+    }
+    .pn{
+        color: blueviolet;
+    }
+    .pp{
+        color: red;
+    }
+    .productsmain{
+        margin-left: 43%;
+        margin-right: 44%;
+        margin-top: 10%;
+    }
+    .products1{
+        float: left;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .main{
+margin-left: 27%;
+    }
+.form{
+    align-content: center;
+    float: left;
+    margin-left: 2%;
+    margin-top: 3%;
+}
+    .b2{
+        float: top;
+        margin-left: 27%;
+    }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<div class="b2">
+    <form class="form1" action="/save" method="post">
+        <input name="type" placeholder="type">
+        <input name="name"  placeholder="name">
+        <input name="price"  placeholder="price">
+
+        <input class="a" type="submit" value="зареєструвати новий товар"></input>
+    </form>
+</div>
+<div class="main">
+    <div class="b1">
+<form class="form" action="/allProducts" method="get">
+    <input class="a" type="submit" value="Всі товари"></input>
+</form>
+</div>
+    <div class="b1">
+<form class="form" action="/products1000" method="get">
+    <input class="a" type="submit" value="Товари дорожчі 1000"></input>
+</form>
+</div>
+    <div class="b1">
+<form  class="form" action="/products2000" method="get">
+    <input class="a" type="submit" value="Товари дорожчі 2000"> </input>
+</form>
+</div>
+    <div class="b1">
+        <form  class="form" action="/last10" method="get">
+            <input class="a" type="submit" value="Останні 10 доданих товарів"> </input>
+        </form>
+    </div>
+    <div class="b1">
+<form class="form" action="/allProductsSort" method="get">
+    <input type="submit" value="Всі товари посортовані по алфавіту"></input>
+</form>
+</div>
+</div>
+<h1 class="productsmain">Всі товари</h1>
+<a class="products1" th:each = "all: ${all}">
+    <p class="pt" th:text = "${all.type}"></p>
+    <p class="pn" th:text = "${all.name}"></p>
+    <p class="pp"th:text = "${all.price}"></p>
+
+</a>
+
+</body>
+</html>
